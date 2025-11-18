@@ -1,16 +1,16 @@
 import type { FC } from "react";
-import styles from "./MainLayout.module.css";
 import MainMenu from "../../components/ui/menu/MainMenu/MainMenu";
 import { Outlet } from "react-router-dom";
+import MainHeader from "../../components/ui/header/MainHeader/MainHeader";
+import classes from "./MainLayout.module.css";
 
 const MainLayout: FC = () => {
   return (
-    <div className={styles.appWrapper}>
+    <div className={classes.appWrapper}>
       <MainMenu />
-      {/* <aside className={styles.sidebar}>Menu</aside> */}
-      <main className={styles.main}>
-        <header className={styles.header}>Header</header>
-        <section className={styles.content}>
+      <main className={classes.main}>
+        <MainHeader />
+        <section className={classes.content}>
           <Outlet />
         </section>
       </main>

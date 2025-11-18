@@ -1,3 +1,4 @@
+// #region React Icons Imports
 import { FaBoltLightning } from "react-icons/fa6";
 import { FaUserGroup } from "react-icons/fa6";
 import { FaRegFileAlt } from "react-icons/fa";
@@ -12,6 +13,15 @@ import { BsMoonStars } from "react-icons/bs";
 import { LuLayoutGrid } from "react-icons/lu";
 import { LuCalendar1 } from "react-icons/lu";
 import { AiOutlineLoading } from "react-icons/ai";
+import { MdKeyboardArrowDown } from "react-icons/md";
+// #endregion React Icons Imports
+
+// #region Figma SVG Imports
+import BellIcon from "./bell-icon.svg";
+import ArrowDownIcon from "./chevron-down.svg";
+import SearchIcon from "./search.svg";
+
+// #endregion Figma SVG Imports
 
 const Icons = {
   LightIcon: FaBoltLightning,
@@ -25,6 +35,10 @@ const Icons = {
   DarkModeIcon: BsMoonStars,
   BlocksIcon: CiGrid2H,
   LoadingIcon: AiOutlineLoading,
+  ArrowDownIcon: MdKeyboardArrowDown,
+  // BellIcon: BellIcon,
 };
+
+export { BellIcon, ArrowDownIcon, SearchIcon };
 
 export default Icons;

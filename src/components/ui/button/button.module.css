@@ -2,6 +2,9 @@
   border-radius: var(--b-rad);
   outline: none;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon_bttn {
@@ -15,9 +18,9 @@
   background: var(--orange);
   color: black;
   border: none;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 .main_menu_bttn {
@@ -50,4 +53,36 @@
   font-size: 14px;
   line-height: 160%;
   letter-spacing: 0.2px;
+}
+
+/* Primary Bttn */
+.bttn_common {
+  font-family: Urbanist;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 12px;
+  line-height: 160%;
+  letter-spacing: 0px;
+}
+
+/* Variants */
+.primary_bttn {
+  max-height: 33px;
+  border-radius: 4px;
+  padding: 7px 14px;
+  gap: 6px;
+  background-color: var(--green);
+  border: 1px solid var(--green);
+  color: white; /* Todo: solve with gradient */
+  /* #ECE9E6, #FFFFFF, gradient*/
+}
+
+.secondary_bttn {
+  border: 1px solid var(--green);
+  color: var(--green);
+  font-family: Urbanist;
+}
+
+.ghost_bttn {
+  border: 1px solid var(--bttn-border-gray);
 }

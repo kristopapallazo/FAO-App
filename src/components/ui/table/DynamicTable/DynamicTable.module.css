@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* max-height: 100%;
+  max-width: 100%; */
+}
+
+.panel {
+  flex-shrink: 0;
+  height: 33px;
+  max-height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 0 24px;
+  background-color: gray; /* Todo: remove later, white bckg */
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+  border: 2px solid red;
+}

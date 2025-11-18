@@ -17,14 +17,15 @@
   min-width: 0;
 }
 
-.header {
+/* .header {
   height: 60px;
   flex-shrink: 0;
   background-color: white;
-}
+} */
 
 .content {
   flex: 1;
   overflow: auto;
   background-color: var(--light-gray);
+  padding: 24px;
 }
