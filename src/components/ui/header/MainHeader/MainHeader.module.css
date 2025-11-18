@@ -51,7 +51,7 @@
 .user_name,
 .user_role {
   font-style: normal;
-  font-family: Urbanist;
+  font-family: "Urbanist", sans-serif;
   font-size: 12px;
   letter-spacing: 0px;
   line-height: 160%;

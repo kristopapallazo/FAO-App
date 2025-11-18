@@ -47,7 +47,7 @@
 }
 
 .label_text {
-  font-family: Urbanist;
+  font-family: "Urbanist", sans-serif;
   font-weight: 500;
   font-style: Medium;
   font-size: 14px;
@@ -57,19 +57,21 @@
 
 /* Primary Bttn */
 .bttn_common {
-  font-family: Urbanist;
+  font-family: "Urbanist", sans-serif;
   font-weight: 600;
-  font-style: SemiBold;
   font-size: 12px;
   line-height: 160%;
   letter-spacing: 0px;
+  border-radius: 4px !important;
+  padding: 7px 14px;
+  white-space: nowrap;
 }
 
 /* Variants */
 .primary_bttn {
   max-height: 33px;
   border-radius: 4px;
-  padding: 7px 14px;
+  /* padding: 7px 14px; */
   gap: 6px;
   background-color: var(--green);
   border: 1px solid var(--green);
@@ -80,9 +82,27 @@
 .secondary_bttn {
   border: 1px solid var(--green);
   color: var(--green);
-  font-family: Urbanist;
+  font-family: "Urbanist", sans-serif;
+  background-color: white;
+  /* padding: 7px 14px; */
 }
 
 .ghost_bttn {
   border: 1px solid var(--bttn-border-gray);
+}
+
+.only_icon {
+  /* display: flex; */
+  padding: 0 !important;
+}
+.only_icon:hover svg {
+  fill: var(--green);
+}
+.with_icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  overflow: hidden;
 }

@@ -1,24 +1,15 @@
+import { TEAM_MEMBERS, type TeamMember } from "../../../data";
 import DynamicTable, {
   type Column,
 } from "../../ui/table/DynamicTable/DynamicTable";
 
-interface Team {
-  name: string;
-  surname: string;
-  email: string;
-  phone: string;
-  status: string;
-  permission: string;
-  createdAt: string;
-}
-
 const TeamTable = () => {
-  const columns: Column<Team>[] = [];
-  const data: Team[] = [];
+  const columns: Column<TeamMember>[] = [];
+  const data: TeamMember[] = TEAM_MEMBERS;
 
   return (
     <div style={{ height: "100%" }}>
-      <DynamicTable<Team> columns={columns} data={data} />
+      <DynamicTable<TeamMember> columns={columns} data={data} />
     </div>
   );
 };

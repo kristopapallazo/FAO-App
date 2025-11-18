@@ -20,6 +20,10 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import BellIcon from "./bell-icon.svg";
 import ArrowDownIcon from "./chevron-down.svg";
 import SearchIcon from "./search.svg";
+import FilterIcon from "./filter.svg";
+import SortAscendingIcon from "./sort-ascending.svg";
+import CheckIcon from "./check.svg";
+import ArrowLeftIcon from "./chevron-left.svg";
 
 // #endregion Figma SVG Imports
 
@@ -39,6 +43,14 @@ const Icons = {
   // BellIcon: BellIcon,
 };
 
-export { BellIcon, ArrowDownIcon, SearchIcon };
+export {
+  BellIcon,
+  ArrowDownIcon,
+  SearchIcon,
+  FilterIcon,
+  SortAscendingIcon,
+  CheckIcon,
+  ArrowLeftIcon,
+};
 
 export default Icons;
