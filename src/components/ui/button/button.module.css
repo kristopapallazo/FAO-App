@@ -1,0 +1,53 @@
+.default_bttn {
+  border-radius: var(--b-rad);
+  outline: none;
+  cursor: pointer;
+}
+
+.icon_bttn {
+  width: 27px;
+  height: 27px;
+  /* top: 28px;
+  left: 27px; */
+  /* angle: 0 deg; */
+  /* opacity: 1; */
+  /* border-radius: var(--b-rad); */
+  background: var(--orange);
+  color: black;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_menu_bttn {
+  /* width: 158; */
+  width: 100%;
+  /* height: 42; */
+  /* top: 300px; */
+  /* opacity: 1; */
+  border-radius: var(--b-rad);
+  padding: 10px 16px;
+  gap: 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-gray);
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.main_menu_bttn.active {
+  background-color: var(--orange);
+}
+
+.label_text {
+  font-family: Urbanist;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: 0.2px;
+}

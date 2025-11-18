@@ -1,0 +1,48 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  /* color: rgba(255, 255, 255, 0.87); */
+  color: black;
+  background-color: white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* CSS Variables */
+  --primary-color: #0f172a;
+  --orange: #f3a919;
+  --green: #2b7c7d;
+  --red: #e33d19;
+  --dark-gray: #1e293b;
+  --light-gray: #d3d3d3; /* Todo: not sure about this, cant check in figma */
+
+  /* Borders */
+  /* --border-gray: #f8fafc; */
+  --bttn-border-gray: #e2e8f0;
+  --bttn-table-status: #2b7c7d1a; /* 10% */
+  --bttn-table-permission: #2b7c7d1a; /* 10% */
+
+  /* Text */
+  --text-gray: #f8fafc;
+  --icon-gray: #64748b;
+
+  /* Border Radius */
+  --b-rad: 7px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* min-width: 320px; */
+  height: 100vh;
+  max-height: 100vh;
+}
