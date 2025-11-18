@@ -16,7 +16,14 @@ const AppTitle: FC = () => {
   );
 };
 
-const items = [
+interface MenuItem {
+  key: string;
+  label: string;
+  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  justifyEnd?: boolean;
+}
+
+const items: MenuItem[] = [
   { key: "dashboard", label: "Dashboard", Icon: Icons.DashboardIcon },
   { key: "team", label: "Team", Icon: Icons.UserGroupIcon },
   { key: "calendar", label: "Calendar", Icon: Icons.CalendarIcon },
@@ -24,8 +31,18 @@ const items = [
   { key: "documents", label: "Documents", Icon: Icons.DocumentIcon },
   { key: "analytics", label: "Analytics", Icon: Icons.AnalyticsIcon },
   { key: "logs", label: "Logs", Icon: Icons.LogsIcon },
-  { key: "settings", label: "Settings", Icon: Icons.SettingsIcon },
-  { key: "dark-mode", label: "Dark Mode", Icon: Icons.DarkModeIcon },
+  {
+    key: "settings",
+    label: "Settings",
+    Icon: Icons.SettingsIcon,
+    justifyEnd: true,
+  },
+  {
+    key: "dark-mode",
+    label: "Dark Mode",
+    Icon: Icons.DarkModeIcon,
+    justifyEnd: true,
+  },
 ];
 
 const MainMenu: FC = () => {
@@ -41,7 +58,20 @@ const MainMenu: FC = () => {
     navigate(path);
   };
 
-  const bttns = items.map((item) => {
+  const regularItems: MenuItem[] = [];
+  const endItems: MenuItem[] = [];
+
+  items.forEach((item) => {
+    if (item.justifyEnd) {
+      endItems.push(item);
+    } else {
+      regularItems.push(item);
+    }
+  });
+  //   const regularItems = items.filter((item) => !item.justifyEnd);
+  //   const endItems = items.filter((item) => item.justifyEnd);
+
+  const renderButton = (item: (typeof items)[0]) => {
     const isActive =
       (item.key === "dashboard" && location.pathname === "/") ||
       location.pathname === `/${item.key}`;
@@ -50,19 +80,19 @@ const MainMenu: FC = () => {
       <MainMenuBttn
         key={item.key}
         active={isActive}
-        style={{ marginBottom: 8 }}
         icon={<item.Icon style={{ width: 22, height: 22 }} />}
         onClick={() => handleNavigation(item.key)}
       >
         {item.label}
       </MainMenuBttn>
     );
-  });
+  };
 
   return (
     <aside className={styles.main_menu}>
       <AppTitle />
-      <nav className={styles.menu_items}>{bttns}</nav>
+      <nav className={styles.menu_items}>{regularItems.map(renderButton)}</nav>
+      <nav className={styles.menu_items_end}>{endItems.map(renderButton)}</nav>
     </aside>
   );
 };
