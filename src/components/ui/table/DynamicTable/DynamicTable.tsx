@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import {
-  ArrowDownIcon,
   ArrowLeftIcon,
   FilterIcon,
   SettingIcon,
@@ -11,6 +10,7 @@ import { PrimaryBttn } from "../../button";
 import Checkbox from "../../form/checkbox/Checkbox";
 import classes from "./DynamicTable.module.css";
 import { useCallback, useState, type ReactNode } from "react";
+import Select from "../../form/select/Select";
 
 export interface Column<T> {
   key: string;
@@ -32,6 +32,10 @@ interface DynamicTableProps<T> {
   canSelectRow?: boolean;
   onRowSelect?: (selectedKeys: RowKey[]) => void;
   defaultSelectedRowKeys?: RowKey[];
+  pagination?: {
+    pageSize?: number;
+    pageSizeOptions?: number[];
+  };
   // onRowClick?: (item: T) => void;
 }
 
@@ -49,6 +53,10 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
     canSelectRow = false,
     onRowSelect,
     defaultSelectedRowKeys,
+    pagination = {
+      pageSize: 25,
+      pageSizeOptions: [5, 10, 25, 50],
+    },
     // onRowClick,
   } = props;
 
@@ -56,6 +64,15 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
     defaultSelectedRowKeys || []
   );
   const [selectAll, setSelectAll] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(pagination?.pageSize || 25);
+
+  // Calculate pagination values
+  const totalItems = data.length;
+  const totalPages = Math.ceil(totalItems / pageSize);
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = Math.min(startIndex + pageSize, totalItems);
+  const paginatedData = data.slice(startIndex, endIndex);
 
   const handleRowSelection = useCallback(
     (rowKey: string | number) => {
@@ -77,13 +94,27 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
     const newSelectAll = !selectAll;
     setSelectAll(newSelectAll);
 
-    const newSelection = newSelectAll ? data.map(keyExtractor) : [];
+    const newSelection = newSelectAll ? paginatedData.map(keyExtractor) : [];
     setSelectedRowKeys(newSelection);
 
     if (onRowSelect) {
       onRowSelect(newSelection);
     }
-  }, [selectAll, data, keyExtractor, onRowSelect]);
+  }, [selectAll, paginatedData, keyExtractor, onRowSelect]);
+
+  const handlePageSizeChange = useCallback((value: string) => {
+    const newPageSize = parseInt(value, 10);
+    setPageSize(newPageSize);
+    setCurrentPage(1); // Reset to first page when page size changes
+  }, []);
+
+  const handlePreviousPage = useCallback(() => {
+    setCurrentPage((prev) => Math.max(1, prev - 1));
+  }, []);
+
+  const handleNextPage = useCallback(() => {
+    setCurrentPage((prev) => Math.min(totalPages, prev + 1));
+  }, [totalPages]);
 
   const tableHeaders = (
     <>
@@ -106,7 +137,7 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
     </>
   );
 
-  const tableRows = data.map((item /* index */) => {
+  const tableRows = paginatedData.map((item /* index */) => {
     const rowKey = keyExtractor(item);
     const isSelected = selectedRowKeys.includes(rowKey);
 
@@ -117,7 +148,10 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
         onClick={() => handleRowSelection(rowKey)}
       >
         {canSelectRow && (
-          <td className={classes.select_column_cell}>
+          <td
+            className={classes.select_column_cell}
+            onClick={(e) => e.stopPropagation()}
+          >
             <Checkbox
               checked={isSelected}
               onChange={() => handleRowSelection(rowKey)}
@@ -166,7 +200,13 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
             margin: "0 12px",
           }}
         >
-          <PrimaryBttn label="Add Member" width={100} />
+          <PrimaryBttn
+            label="Add Member"
+            width={100}
+            onClick={() => {
+              alert("Open Add Member Modal");
+            }}
+          />
           <PrimaryBttn
             label="Export"
             variant="secondary"
@@ -192,6 +232,9 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
             icon={<FilterIcon />}
             width={33}
             // height={33}
+            onClick={() => {
+              alert("Open Filter Modal");
+            }}
           />
         </span>
       </div>
@@ -199,7 +242,12 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
         <thead>
           <tr className={classes.table_header}>
             {tableHeaders}
-            <th className={classes.config_bttn_wrapper}>
+            <th
+              className={classes.config_bttn_wrapper}
+              onClick={() => {
+                alert("Open the Table Config Modal");
+              }}
+            >
               <SettingIcon />
             </th>
           </tr>
@@ -209,14 +257,21 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
       {/* Footer */}
       <div className={classes.panel}>
         <span className={classes.pannel_inner}>
-          <span className={classes.pagination_label}>1 - 30 of 140</span>
+          <span className={classes.pagination_label}>
+            {startIndex + 1} - {endIndex} of {totalItems}
+          </span>
           <span className={classes.pagination_controls}>
             <PrimaryBttn
               variant="secondary"
               icon={<ArrowLeftIcon />}
               width={30}
               height={30}
-              style={{ borderColor: "var(--bttn-border-gray)" }}
+              style={{
+                borderColor: "var(--bttn-border-gray)",
+                opacity: currentPage === 1 ? 0.5 : 1,
+                cursor: currentPage === 1 ? "not-allowed" : "pointer",
+              }}
+              onClick={currentPage === 1 ? undefined : handlePreviousPage}
             />
             <PrimaryBttn
               variant="secondary"
@@ -226,7 +281,10 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
               style={{
                 borderColor: "var(--bttn-border-gray)",
                 transform: "rotate(180deg)",
+                opacity: currentPage === totalPages ? 0.5 : 1,
+                cursor: currentPage === totalPages ? "not-allowed" : "pointer",
               }}
+              onClick={currentPage === totalPages ? undefined : handleNextPage}
             />
           </span>
         </span>
@@ -234,13 +292,18 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
           className={clsx(classes.pannel_inner, classes.pagination_page_size)}
         >
           <span className={classes.pagination_label}>Show</span>
-          <PrimaryBttn
-            variant="secondary"
-            icon={<ArrowDownIcon />}
-            // width={30}
-            // height={30}
-            style={{ borderColor: "var(--bttn-border-gray)", color: "#334155" }}
-            label="25 Items"
+
+          <Select
+            wrapperStyle={{ height: "100%" }}
+            options={(pagination?.pageSizeOptions || [5, 10, 25, 50]).map(
+              (size) => ({
+                value: String(size),
+                label: `${size} Items`,
+              })
+            )}
+            value={String(pageSize)}
+            onChange={handlePageSizeChange}
+            width="95px"
           />
         </span>
       </div>

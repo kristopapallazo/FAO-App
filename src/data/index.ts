@@ -40,7 +40,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 2,
-    name: "Alice",
+    name: "Blice",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -50,7 +50,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 3,
-    name: "Alice",
+    name: "Clice",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -60,7 +60,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 5,
-    name: "Alice",
+    name: "Olise",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -70,7 +70,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 6,
-    name: "Alice",
+    name: "Clark",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -80,7 +80,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 7,
-    name: "Alice",
+    name: "Elice",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -90,7 +90,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 8,
-    name: "Alice",
+    name: "Ulice",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -100,7 +100,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 9,
-    name: "Alice",
+    name: "Ilice",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -110,7 +110,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 10,
-    name: "Alice",
+    name: "Smith",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -120,7 +120,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 11,
-    name: "Alice",
+    name: "John",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -130,7 +130,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 12,
-    name: "Alice",
+    name: "Johnatan",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -140,7 +140,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 13,
-    name: "Alice",
+    name: "Mike",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -150,7 +150,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 14,
-    name: "Alice",
+    name: "Michael",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -160,7 +160,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 15,
-    name: "Alice",
+    name: "Michelle",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -169,8 +169,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     createdAt: "2023-01-15",
   },
   {
-    id: 15,
-    name: "Alice",
+    id: 16,
+    name: "Marina",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
@@ -179,8 +179,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     createdAt: "2023-01-15",
   },
   {
-    id: 15,
-    name: "Alice",
+    id: 17,
+    name: "Erica",
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",

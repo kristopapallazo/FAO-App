@@ -125,6 +125,7 @@
   align-items: center;
   justify-content: center;
   padding: 0 !important;
+  cursor: pointer;
 }
 .config_bttn_wrapper span {
   width: 20px;

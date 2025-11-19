@@ -1,0 +1,19 @@
+.select_wrapper {
+  cursor: pointer;
+}
+
+.select {
+  padding: 7px 14px;
+  height: 100%;
+  border-radius: 4px;
+  max-height: 32px;
+  outline: none;
+  cursor: pointer;
+}
+
+.secondary {
+  border: 1px solid var(--bttn-border-gray);
+  color: var(--green);
+  font-family: "Urbanist", sans-serif;
+  background-color: white;
+}

@@ -43,7 +43,7 @@ const TeamTable = () => {
     {
       key: "actions",
       label: "Actions",
-      render: (item) => (
+      render: () => (
         <span
           style={{
             display: "flex",
