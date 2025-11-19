@@ -52,6 +52,7 @@ export const MainMenuBttn: FC<MainMenuBttnProps> = ({
 };
 
 type BttnVariant = "primary" | "secondary" | "ghost";
+type BttnStatus = "danger" | "warning";
 
 interface PrimaryBttnProps {
   children?: React.ReactNode;
@@ -62,6 +63,8 @@ interface PrimaryBttnProps {
   onClick?: () => void;
   height?: number | string;
   width?: number | string;
+  status?: BttnStatus;
+  withoutStyle?: boolean; // without style, to show only the icon
 }
 
 export const PrimaryBttn: FC<PrimaryBttnProps> = ({
@@ -74,6 +77,8 @@ export const PrimaryBttn: FC<PrimaryBttnProps> = ({
   onClick,
   height = "100%",
   width,
+  status,
+  withoutStyle,
   // height = "33px",
 }) => {
   /* Determine if only contains an icon */
@@ -90,8 +95,15 @@ export const PrimaryBttn: FC<PrimaryBttnProps> = ({
     classes.default_bttn,
     classes.bttn_common,
     variant === "primary" ? classes.primary_bttn : classes.secondary_bttn,
-    onlyIcon ? classes.only_icon : "",
-    hasIcon ? classes.with_icon : ""
+    onlyIcon
+      ? `${classes.only_icon} ${withoutStyle ? "" : classes.without_style}`
+      : "",
+    hasIcon ? classes.with_icon : "",
+    status === "danger"
+      ? classes.danger
+      : status === "warning"
+      ? classes.warning
+      : ""
   );
 
   return (

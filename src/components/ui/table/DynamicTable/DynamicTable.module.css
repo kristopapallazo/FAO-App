@@ -18,7 +18,7 @@
   padding: 0 24px;
   background-color: white; /* Todo: remove later, white bckg */
   overflow-x: auto;
-  border: 1px solid var(--bttn-border-gray);
+  /* border: 1px solid var(--bttn-border-gray); */
 }
 .pannel_inner {
   display: flex;
@@ -56,12 +56,174 @@
  */
 .table {
   width: 100%;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: auto;
   flex: 1;
   min-height: 0;
-  border: 2px solid red;
+  /* border: 2px solid red; */
+  display: block;
+}
+
+.table thead {
+  display: block;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.table_header {
+  width: 100%;
+  min-width: max-content;
+  background: var(--bttn-border-gray);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: start; /* Todo: check this */
+  column-gap: 6px;
+  height: 42px;
+  max-height: 42px;
+  /* padding-left: 24px; */
+}
+
+.table_header th {
+  flex: 1;
+  min-width: 150px;
+  display: flex;
+  height: 100%;
+}
+
+.select_column_header {
+  width: 64px !important;
+  min-width: 64px !important;
+  max-width: 64px !important;
+  flex-shrink: 0;
+  flex-grow: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: sticky;
+  left: 0;
+  z-index: 11;
+  background-color: var(--bttn-border-gray);
+}
+
+.config_bttn_wrapper {
+  width: 38px !important;
+  min-width: 38px !important;
+  max-width: 38px !important;
+  height: 42px !important;
+  max-height: 42px !important;
+  flex-shrink: 0;
+  padding: 10px 14px;
+  /* gap: 6px; */
+  border-width: 1px;
+  border: 1px solid var(--bttn-border-gray);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+}
+.config_bttn_wrapper span {
+  width: 20px;
+  height: 20px;
+  /* fill: var(--icon-gray); */
+}
+.table_header_cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 6px;
+  height: 100%;
+  width: 100%;
+}
+.table_header_cell_label {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: 0.2px;
+}
+
+.table_body {
+  width: 100%;
+  min-width: max-content;
+  display: block;
+  overflow: visible;
+  max-height: 100%;
+}
+
+.table_row {
+  width: 100%;
+  min-width: max-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  column-gap: 6px;
+  /* min-height: 42px; */
+  height: 42px;
+  max-height: 42px;
+  border-bottom: 1px solid var(--bttn-border-gray);
+  background-color: white;
+  color: var(--icon-gray);
+  /* Style for text */
+  font-family: "Urbanist", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: 0.2px;
+}
+
+.table_row td {
+  flex: 1;
+  min-width: 150px;
+}
+
+.select_column_cell {
+  width: 64px !important;
+  min-width: 64px !important;
+  max-width: 64px !important;
+  flex-shrink: 0;
+  flex-grow: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  left: 0;
+  z-index: 9;
+  background-color: white;
+}
+
+.table_row:hover .select_column_cell {
+  background-color: #f9fafb;
+}
+
+.row_placeholder_cell {
+  width: 38px !important;
+  min-width: 38px !important;
+  max-width: 38px !important;
+  flex-shrink: 0;
+  flex-grow: 0 !important;
+}
+
+.table_row:hover {
+  background-color: #f9fafb;
+  cursor: pointer;
+}
+
+.table_cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 8px;
+  height: 100%;
+  width: 100%;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
 }

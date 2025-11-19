@@ -78,7 +78,16 @@
   color: white; /* Todo: solve with gradient */
   /* #ECE9E6, #FFFFFF, gradient*/
 }
-
+.primary_bttn.danger {
+  background-color: var(--red);
+  border: 1px solid var(--red);
+  color: white;
+}
+.primary_bttn.warning {
+  background-color: var(--orange);
+  border: 1px solid var(--orange);
+  color: black;
+}
 .secondary_bttn {
   border: 1px solid var(--green);
   color: var(--green);
@@ -95,6 +104,11 @@
   /* display: flex; */
   padding: 0 !important;
 }
+.with_icon.without_style {
+  border: none !important;
+  background: transparent !important;
+}
+
 .only_icon:hover svg {
   fill: var(--green);
 }

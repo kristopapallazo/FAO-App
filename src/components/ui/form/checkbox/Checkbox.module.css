@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   gap: 25px;
+  cursor: pointer;
 }
 
 .checkbox_container {
@@ -9,7 +10,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 input.checkbox {
@@ -60,4 +61,5 @@ input.checkbox:checked ~ .checkbox_icon {
   line-height: 160%;
   letter-spacing: 0.2px;
   color: #262424;
+  white-space: nowrap;
 }

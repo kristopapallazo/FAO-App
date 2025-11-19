@@ -63,5 +63,5 @@
 
 .user_role {
   font-weight: 400;
-  color: #64748b;
+  color: var(--icon-gray);
 }

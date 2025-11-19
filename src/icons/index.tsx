@@ -22,8 +22,10 @@ import ArrowDownIcon from "./chevron-down.svg";
 import SearchIcon from "./search.svg";
 import FilterIcon from "./filter.svg";
 import SortAscendingIcon from "./sort-ascending.svg";
+import SortTableHeaderCellIcon from "./sort_table_header_cell.svg";
 import CheckIcon from "./check.svg";
 import ArrowLeftIcon from "./chevron-left.svg";
+import SettingIcon from "./settings.svg";
 
 // #endregion Figma SVG Imports
 
@@ -49,8 +51,10 @@ export {
   SearchIcon,
   FilterIcon,
   SortAscendingIcon,
+  SortTableHeaderCellIcon,
   CheckIcon,
   ArrowLeftIcon,
+  SettingIcon,
 };
 
 export default Icons;

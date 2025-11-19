@@ -12,6 +12,7 @@ const DocumentsPage = lazy(() => import("../pages/DocumentsPage"));
 const AnalyticsPage = lazy(() => import("../pages/AnalyticsPage"));
 const LogsPage = lazy(() => import("../pages/LogsPage"));
 const SettingsPage = lazy(() => import("../pages/SettingsPage"));
+const ErrorPage = lazy(() => import("../pages/ErrorPage/ErrorPage"));
 // #endregion Lazy Pages
 
 const withSuspense = (Component: React.LazyExoticComponent<React.FC>) => (
@@ -33,6 +34,7 @@ export const router = createBrowserRouter([
       { path: "analytics", element: withSuspense(AnalyticsPage) },
       { path: "logs", element: withSuspense(LogsPage) },
       { path: "settings", element: withSuspense(SettingsPage) },
+      { path: "*", element: withSuspense(ErrorPage) },
     ],
   },
 ]);

@@ -16,20 +16,24 @@ const Checkbox: FC<CheckboxProps> = ({ label, checked = false, onChange }) => {
   };
 
   return (
-    <span className={classes.checkbox_wrapper}>
-      <label className={classes.checkbox_container}>
-        <input
-          type="checkbox"
-          className={classes.checkbox}
-          checked={checked}
-          onChange={handleChange}
-        />
-        <span className={classes.checkbox_icon}>
-          <CheckIcon />
+    <>
+      {/* <span className={classes.checkbox_wrapper}> */}
+      <label className={classes.checkbox_wrapper}>
+        <span className={classes.checkbox_container}>
+          <input
+            type="checkbox"
+            className={classes.checkbox}
+            checked={checked}
+            onChange={handleChange}
+          />
+          <span className={classes.checkbox_icon}>
+            <CheckIcon />
+          </span>
         </span>
+        {label && <span className={classes.label}>{label}</span>}
       </label>
-      {label && <span className={classes.label}>{label}</span>}
-    </span>
+      {/* </span> */}
+    </>
   );
 };
 
