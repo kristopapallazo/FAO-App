@@ -1,8 +1,8 @@
 import { useCallback, useState, type FC } from "react";
 import { ArrowLeftIcon } from "../../../../icons";
 import classes from "./LatestEventsSection.module.css";
-import type { BadgeStatus, Event } from "../../../../types/dto.types";
 import EventsCard from "./EventsCard";
+import type { Event } from "../../../../types/dto.types";
 
 const LATEST_EVENTS: Event[] = [
   { id: 1, title: "Lorem 1", date: "2024-06-01", statusId: 1 },
