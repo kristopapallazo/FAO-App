@@ -15,6 +15,7 @@ interface BadgeProps {
   iconWrapperStyle?: React.CSSProperties;
   variant?: BadgeStatus;
   children?: React.ReactNode;
+  addPointerStatus?: boolean;
 }
 
 const Badge: FC<BadgeProps> = ({
@@ -29,6 +30,7 @@ const Badge: FC<BadgeProps> = ({
   iconWrapperStyle = {},
   variant = "success",
   children,
+  addPointerStatus = false,
 }: BadgeProps) => {
   const className = clsx(classes.badge, {
     [classes.success]: variant === "success",
@@ -41,9 +43,22 @@ const Badge: FC<BadgeProps> = ({
       className={className}
       style={{ width, height, color, backgroundColor, ...wrapperStyle }}
     >
-      <span className={classes.icon_wrapper} style={iconWrapperStyle}>
-        {icon}
-      </span>
+      {icon && (
+        <span className={classes.icon_wrapper} style={iconWrapperStyle}>
+          {icon}
+        </span>
+      )}
+
+      {addPointerStatus && (
+        <span
+          className={clsx(classes.pointer_status, {
+            [classes.success]: variant === "success",
+            [classes.warning]: variant === "warning",
+            [classes.error]: variant === "error",
+          })}
+        ></span>
+      )}
+
       <span className={classes.label} style={{ color, ...labelStyle }}>
         {label || children}
       </span>

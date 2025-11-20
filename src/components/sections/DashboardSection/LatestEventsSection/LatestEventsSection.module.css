@@ -26,7 +26,7 @@
   cursor: pointer;
 } */
 .bttn {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 500;
   font-size: 14px;
   line-height: 160%;

@@ -14,6 +14,6 @@
 .secondary {
   border: 1px solid var(--bttn-border-gray);
   color: var(--green);
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   background-color: white;
 }

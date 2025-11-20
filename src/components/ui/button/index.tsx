@@ -125,3 +125,39 @@ export const PrimaryBttn: FC<PrimaryBttnProps> = ({
     </button>
   );
 };
+
+interface IconOnlyBttnProps {
+  children?: React.ReactNode;
+  icon?: React.ReactNode;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+  size?: number | string;
+  width?: number | string;
+  height?: number | string;
+}
+
+export const IconOnlyBttn: FC<IconOnlyBttnProps> = ({
+  children,
+  icon,
+  style = {},
+  onClick,
+  size = 40,
+  width,
+  height,
+}) => {
+  const buttonSize = {
+    width: width || size,
+    height: height || size,
+    ...style,
+  };
+
+  return (
+    <button
+      className={classes.icon_only_bttn}
+      style={buttonSize}
+      onClick={onClick}
+    >
+      {icon || children}
+    </button>
+  );
+};

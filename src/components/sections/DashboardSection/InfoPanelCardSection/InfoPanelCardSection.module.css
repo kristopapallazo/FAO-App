@@ -47,7 +47,7 @@
 }
 .title {
   white-space: nowrap;
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 600;
   font-size: 14px;
   line-height: 160%;
@@ -80,7 +80,7 @@
   gap: 16px;
 }
 .value {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 700;
   font-size: 24px;
   line-height: 125%;
@@ -109,7 +109,7 @@
   vertical-align: middle;
 }
 .percentage {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 500;
   font-size: 12px;
   line-height: 160%;
@@ -118,7 +118,7 @@
   margin: auto 0;
 }
 .last_week_value {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 600;
   font-size: 12px;
   line-height: 160%;
@@ -132,7 +132,7 @@
 }
 
 .modal_title {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 700;
   font-size: 24px;
   line-height: 125%;
@@ -156,14 +156,14 @@
 }
 
 .stat_label {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 600;
   font-size: 16px;
   color: var(--icon-gray);
 }
 
 .stat_value {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 700;
   font-size: 28px;
   color: #262424;
@@ -185,14 +185,14 @@
 }
 
 .percentage_text {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 500;
   font-size: 14px;
   color: var(--red);
 }
 
 .comparison_text {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 600;
   font-size: 14px;
   color: var(--icon-gray);

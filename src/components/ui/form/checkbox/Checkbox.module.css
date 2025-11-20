@@ -54,7 +54,7 @@ input.checkbox:checked ~ .checkbox_icon {
 }
 
 .label {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 500;
   font-style: normal;
   font-size: 14px;

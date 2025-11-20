@@ -37,6 +37,8 @@
 
   /* Border Radius */
   --b-rad: 7px;
+
+  --ff: "Urbanist", sans-serif;
 }
 
 * {
@@ -50,7 +52,7 @@ body {
   height: 100vh;
   max-height: 100vh;
   /* Todo: check if this should be on body, or specific elements */
-  font-family: "Urbanist", sans-serif;
+  /* font-family: "Urbanist", sans-serif; */
 }
 
 /* style the scrollbar to match the Figma design */

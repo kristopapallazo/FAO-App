@@ -39,7 +39,10 @@ const EventsCard: FC<Event> = memo((event) => {
       </span>
       <span className={classes.section}>
         <span className={classes.date}>{formattedDate}</span>
-        <Badge variant={EventStatusDictionaryEnum[statusId].status}>
+        <Badge
+          variant={EventStatusDictionaryEnum[statusId].status}
+          addPointerStatus
+        >
           {EventStatusDictionaryEnum[statusId].label}
         </Badge>
       </span>

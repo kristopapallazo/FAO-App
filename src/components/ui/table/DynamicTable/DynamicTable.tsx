@@ -6,7 +6,7 @@ import {
   SortAscendingIcon,
   SortTableHeaderCellIcon,
 } from "../../../../icons";
-import { PrimaryBttn } from "../../button";
+import { IconOnlyBttn, PrimaryBttn } from "../../button";
 import Checkbox from "../../form/checkbox/Checkbox";
 import classes from "./DynamicTable.module.css";
 import { useCallback, useState, type ReactNode } from "react";
@@ -23,6 +23,13 @@ export interface Column<T> {
 
 export type RowKey = string | number;
 
+export type SortDirection = "asc" | "desc";
+
+export interface SortConfig {
+  key: string;
+  direction: SortDirection;
+}
+
 interface DynamicTableProps<T> {
   columns: Column<T>[];
   data: T[];
@@ -36,6 +43,7 @@ interface DynamicTableProps<T> {
     pageSize?: number;
     pageSizeOptions?: number[];
   };
+  defaultSort?: SortConfig;
   // onRowClick?: (item: T) => void;
 }
 
@@ -57,6 +65,7 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
       pageSize: 25,
       pageSizeOptions: [5, 10, 25, 50],
     },
+    defaultSort,
     // onRowClick,
   } = props;
 
@@ -66,13 +75,39 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
   const [selectAll, setSelectAll] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(pagination?.pageSize || 25);
+  const [sortConfig, setSortConfig] = useState<SortConfig | null>(
+    defaultSort || null
+  );
+
+  // Sorting logic
+  const sortedData = useCallback(() => {
+    if (!sortConfig) return data;
+
+    const sorted = [...data].sort((a, b) => {
+      const aValue = (a as Record<string, unknown>)[sortConfig.key];
+      const bValue = (b as Record<string, unknown>)[sortConfig.key];
+
+      if (aValue === null || aValue === undefined) return 1;
+      if (bValue === null || bValue === undefined) return -1;
+
+      if (aValue < bValue) {
+        return sortConfig.direction === "asc" ? -1 : 1;
+      }
+      if (aValue > bValue) {
+        return sortConfig.direction === "asc" ? 1 : -1;
+      }
+      return 0;
+    });
+
+    return sorted;
+  }, [data, sortConfig])();
 
   // Calculate pagination values
-  const totalItems = data.length;
+  const totalItems = sortedData.length;
   const totalPages = Math.ceil(totalItems / pageSize);
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = Math.min(startIndex + pageSize, totalItems);
-  const paginatedData = data.slice(startIndex, endIndex);
+  const paginatedData = sortedData.slice(startIndex, endIndex);
 
   const handleRowSelection = useCallback(
     (rowKey: string | number) => {
@@ -116,6 +151,19 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
     setCurrentPage((prev) => Math.min(totalPages, prev + 1));
   }, [totalPages]);
 
+  const handleSort = useCallback((columnKey: string) => {
+    setSortConfig((prevSort) => {
+      if (!prevSort || prevSort.key !== columnKey) {
+        return { key: columnKey, direction: "asc" };
+      }
+      if (prevSort.direction === "asc") {
+        return { key: columnKey, direction: "desc" };
+      }
+      return null;
+    });
+    setCurrentPage(1); // Reset to first page when sorting changes
+  }, []);
+
   const tableHeaders = (
     <>
       {canSelectRow && (
@@ -124,13 +172,40 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
         </th>
       )}
       {columns.map((column) => {
-        const className = clsx(classes.table_header_cell, column.className);
+        const isSorted = sortConfig?.key === column.key;
+        const isSortable = column.sortable ?? false;
+        const className = clsx(
+          classes.table_header_cell,
+          column.className,
+          isSorted && classes.sorted_column,
+          isSortable && classes.sortable_column
+        );
+
         return (
-          <th key={column.key} className={className}>
+          <th
+            key={column.key}
+            className={className}
+            onClick={isSortable ? () => handleSort(column.key) : undefined}
+            style={{ cursor: isSortable ? "pointer" : "default" }}
+          >
             <span className={classes.table_header_cell_label}>
               {column.label}
             </span>
-            <SortTableHeaderCellIcon />
+            {isSortable && (
+              <>
+                {!isSorted && <SortTableHeaderCellIcon />}
+                {isSorted && sortConfig.direction === "asc" && (
+                  <SortAscendingIcon />
+                )}
+                {isSorted && sortConfig.direction === "desc" && (
+                  <span
+                    style={{ transform: "rotate(180deg)", display: "flex" }}
+                  >
+                    <SortAscendingIcon />
+                  </span>
+                )}
+              </>
+            )}
           </th>
         );
       })}
@@ -188,7 +263,7 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
             onChange={handleSelectAll}
           />
           <PrimaryBttn
-            label="Sort: Location"
+            label="Sort: Column Name"
             variant="secondary" /* width={100} */
             icon={<SortAscendingIcon />}
           />
@@ -248,7 +323,7 @@ const DynamicTable = <T,>(props: DynamicTableProps<T>) => {
                 alert("Open the Table Config Modal");
               }}
             >
-              <SettingIcon />
+              <IconOnlyBttn icon={<SettingIcon />} />
             </th>
           </tr>
         </thead>

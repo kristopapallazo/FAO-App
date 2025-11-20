@@ -47,7 +47,7 @@
 }
 
 .label_text {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 500;
   font-style: Medium;
   font-size: 14px;
@@ -57,7 +57,7 @@
 
 /* Primary Bttn */
 .bttn_common {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 600;
   font-size: 12px;
   line-height: 160%;
@@ -91,7 +91,7 @@
 .secondary_bttn {
   border: 1px solid var(--green);
   color: var(--green);
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   background-color: white;
   /* padding: 7px 14px; */
 }
@@ -119,4 +119,46 @@
   flex-wrap: nowrap;
   gap: 8px;
   overflow: hidden;
+}
+
+/* Icon Only Button */
+.icon_only_bttn {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+.icon_only_bttn:hover {
+  opacity: 0.7;
+}
+
+.icon_only_bttn:hover svg {
+  filter: brightness(0.85);
+}
+
+/* Icon Only Button */
+.icon_only_bttn {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+.icon_only_bttn:hover {
+  opacity: 0.7;
+}
+
+.icon_only_bttn:hover svg {
+  filter: brightness(0.85);
 }

@@ -1,0 +1,86 @@
+.wrapper {
+  padding: 24px;
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.top_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 12px;
+  height: 24px;
+  max-height: 24px;
+}
+
+.summary_card_grid {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); */
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.bottom_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.left {
+  flex-shrink: 0;
+}
+.top_label {
+  font-family: var(--ff);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 160%;
+  letter-spacing: 0px;
+  color: var(--icon-gray);
+  margin-bottom: 8px;
+}
+/* Todo: Check this for the width and style */
+.percentage_wrapper {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 25px;
+  /* gap: 4px; */
+  width: 136px;
+  height: 30px;
+  /* top: 927px;
+  left: 43px; */
+}
+.percentage_value {
+  font-family: var(--ff);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 125%;
+  letter-spacing: 0.2px;
+  color: #262424;
+}
+
+.percetage_change {
+  font-family: var(--ff);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 160%;
+  letter-spacing: 0px;
+  color: var(--green);
+}
+
+/* chart contaciner */
+.right {
+  flex: 1;
+  border: 1px solid red;
+}

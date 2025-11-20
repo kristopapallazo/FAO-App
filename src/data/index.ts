@@ -2,7 +2,10 @@ import type {
   EventStatusDictionary,
   Permission,
   Status,
+  SummaryData,
   TeamMember,
+  TeamPermissionDictionary,
+  TeamStatusDictionary,
   User,
 } from "../types/dto.types";
 
@@ -21,7 +24,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     email: "alice.smith@example.com",
     phone: "0693259358",
     status: 1,
-    permission: 1,
+    permission: 2,
     createdAt: "2023-01-15",
   },
   {
@@ -30,8 +33,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
-    status: 1,
-    permission: 1,
+    status: 2,
+    permission: 2,
     createdAt: "2023-01-15",
   },
   {
@@ -40,7 +43,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
-    status: 1,
+    status: 2,
     permission: 1,
     createdAt: "2023-01-15",
   },
@@ -50,7 +53,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
-    status: 1,
+    status: 2,
     permission: 1,
     createdAt: "2023-01-15",
   },
@@ -61,7 +64,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     email: "alice.smith@example.com",
     phone: "0693259358",
     status: 1,
-    permission: 1,
+    permission: 2,
     createdAt: "2023-01-15",
   },
   {
@@ -70,7 +73,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
-    status: 1,
+    status: 2,
     permission: 1,
     createdAt: "2023-01-15",
   },
@@ -80,8 +83,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
-    status: 1,
-    permission: 1,
+    status: 2,
+    permission: 2,
     createdAt: "2023-01-15",
   },
   {
@@ -90,8 +93,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
-    status: 1,
-    permission: 1,
+    status: 2,
+    permission: 2,
     createdAt: "2023-01-15",
   },
   {
@@ -100,8 +103,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
-    status: 1,
-    permission: 1,
+    status: 2,
+    permission: 2,
     createdAt: "2023-01-15",
   },
   {
@@ -111,7 +114,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     email: "alice.smith@example.com",
     phone: "0693259358",
     status: 1,
-    permission: 1,
+    permission: 2,
     createdAt: "2023-01-15",
   },
   {
@@ -121,7 +124,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     email: "alice.smith@example.com",
     phone: "0693259358",
     status: 1,
-    permission: 1,
+    permission: 2,
     createdAt: "2023-01-15",
   },
   {
@@ -130,7 +133,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
-    status: 1,
+    status: 2,
     permission: 1,
     createdAt: "2023-01-15",
   },
@@ -140,8 +143,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
-    status: 1,
-    permission: 1,
+    status: 2,
+    permission: 2,
     createdAt: "2023-01-15",
   },
   {
@@ -150,8 +153,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
-    status: 1,
-    permission: 1,
+    status: 2,
+    permission: 2,
     createdAt: "2023-01-15",
   },
   {
@@ -161,7 +164,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     email: "alice.smith@example.com",
     phone: "0693259358",
     status: 1,
-    permission: 1,
+    permission: 2,
     createdAt: "2023-01-15",
   },
   {
@@ -170,7 +173,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     surname: "Smith",
     email: "alice.smith@example.com",
     phone: "0693259358",
-    status: 1,
+    status: 2,
     permission: 1,
     createdAt: "2023-01-15",
   },
@@ -183,15 +186,21 @@ export const ALL_STATUSES: Status[] = [
 ];
 
 export const ALL_PERMISSIONS: Permission[] = [
-  { id: 1, label: "Read", fullLabel: "Read-Only" },
-  { id: 2, label: "Write", fullLabel: "Can Edit" },
-  { id: 3, label: "Delete", fullLabel: "Can Delete" },
+  { id: 1, fullLabel: "Read", label: "Read-Only" },
+  { id: 2, fullLabel: "Write", label: "Can Edit" },
+  { id: 3, fullLabel: "Delete", label: "Can Delete" },
 ];
 // #endregion Constants
 
+export const DUMMY_SUMMARY_DATA: SummaryData[] = [
+  { id: 1, title: "Events", value: 40, color: "var(--green)" },
+  { id: 2, title: "Members", value: 79, color: "var(--orange)" },
+  { id: 3, title: "Finished", value: 89, color: "#ffffff" },
+];
+
 /* Todo: This need to be normalized and consume by the ctx */
-export const STATUSES_ALL_IDS = [1, 2, 3];
-export const STATUS_DICTIONARY = { 1: "Active", 2: "Pending", 3: "Trashed" };
+// export const STATUSES_ALL_IDS = [1, 2, 3];
+// export const STATUS_DICTIONARY = { 1: "Active", 2: "Pending", 3: "Trashed" };
 export const PERMISSIONS_ALL_IDS = [1, 2, 3];
 export const PERMISSION_DICTIONARY = {
   1: "Active",
@@ -199,6 +208,16 @@ export const PERMISSION_DICTIONARY = {
   3: "Trashed",
 };
 
+export const TeamStatusDictionaryEnum: TeamStatusDictionary = {
+  1: { label: "Active", status: "success" },
+  2: { label: "Trashed", status: "error" },
+  // 3: { label: "Trashed", status: "error" },
+};
+export const TeamPermissionDictionaryEnum: TeamPermissionDictionary = {
+  1: { label: "Read-Only", status: "warning" },
+  2: { label: "Can Edit", status: "success" },
+  // 3: { label: "Can Delete", status: "error" },
+};
 export const EventStatusDictionaryEnum: EventStatusDictionary = {
   1: { label: "Registered", status: "success" },
   2: { label: "Unregistered", status: "warning" },

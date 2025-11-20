@@ -21,7 +21,7 @@
   position: relative;
 }
 .title_text {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 700;
   font-style: normal;
   font-size: 23px;

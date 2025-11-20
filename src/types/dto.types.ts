@@ -20,8 +20,8 @@ export interface Status {
 }
 export interface Permission {
   id: number;
-  label: "Read" | "Write" | "Delete";
-  fullLabel: string;
+  fullLabel: "Read" | "Write" | "Delete";
+  label: string;
 }
 // #endregion Dto
 
@@ -39,3 +39,23 @@ export type EventStatusDictionary = {
     status: BadgeStatus;
   };
 };
+export type TeamStatusDictionary = {
+  [key: number]: {
+    label: "Active" | "Pending" | "Trashed";
+    status: BadgeStatus;
+  };
+};
+export type TeamPermissionDictionary = {
+  [key: number]: {
+    label: "Read-Only" | "Can Edit" | "Can Delete";
+    status: BadgeStatus;
+  };
+};
+
+export interface SummaryData {
+  id: number;
+  title: string;
+  value: number;
+  color?: string;
+  // icon?: React.ReactNode;
+}

@@ -30,7 +30,7 @@
 }
 /* Footer */
 .pagination_label {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 600;
   font-size: 12px;
   line-height: 160%;
@@ -141,8 +141,33 @@
   height: 100%;
   width: 100%;
 }
+
+.sortable_column {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.sortable_column:hover {
+  background-color: #cbd5e1;
+}
+
+.sorted_column {
+  background-color: var(--light-green);
+}
+
+.sorted_column .table_header_cell_label {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.sorted_column svg,
+.sorted_column path {
+  fill: var(--green);
+}
+
 .table_header_cell_label {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 500;
   font-size: 14px;
   line-height: 160%;
@@ -171,7 +196,7 @@
   background-color: white;
   color: var(--icon-gray);
   /* Style for text */
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 400;
   font-size: 14px;
   line-height: 160%;
@@ -223,7 +248,7 @@
   padding: 8px;
   height: 100%;
   width: 100%;
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 400;
   font-size: 14px;
   line-height: 160%;

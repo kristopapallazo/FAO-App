@@ -9,7 +9,7 @@
 }
 
 .title {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 600;
   font-style: SemiBold;
   font-size: 14px;
@@ -18,7 +18,7 @@
   color: #262424;
 }
 .date {
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--ff);
   font-weight: 400;
   font-style: Regular;
   font-size: 12px;

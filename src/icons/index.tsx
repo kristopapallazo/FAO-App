@@ -35,6 +35,11 @@ import AlertCircle from "./alert-circle.svg";
 import TickSquareIcon from "./Tick Square.svg";
 import TablerCirclesIcon from "./tabler_circles.svg";
 import TablerUserCheckIcon from "./tabler_user-check.svg";
+import EyeIcon from "./eye.svg";
+import EditIcon from "./edit.svg";
+import TrashIcon from "./trash.svg";
+import UserIcon from "./Vector (1).svg";
+import TicIcon from "./Vector (2).svg";
 
 // #endregion Figma SVG Imports
 
@@ -73,6 +78,11 @@ export {
   TablerCirclesIcon, //first section
   TablerUserCheckIcon, //second section
   TickSquareIcon, //third section
+  EyeIcon,
+  EditIcon,
+  TrashIcon,
+  TicIcon,
+  UserIcon,
 };
 
 export default Icons;
