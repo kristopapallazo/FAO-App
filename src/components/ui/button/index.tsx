@@ -141,13 +141,15 @@ export const IconOnlyBttn: FC<IconOnlyBttnProps> = ({
   icon,
   style = {},
   onClick,
-  size = 40,
+  size,
   width,
   height,
 }) => {
   const buttonSize = {
-    width: width || size,
-    height: height || size,
+    // width: width || size,
+    // height: height || size,
+    width: size || width,
+    height: size || height,
     ...style,
   };
 

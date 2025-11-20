@@ -3,6 +3,7 @@ import { ArrowLeftIcon } from "../../../../icons";
 import classes from "./LatestEventsSection.module.css";
 import EventsCard from "./EventsCard";
 import type { Event } from "../../../../types/dto.types";
+import { IconOnlyBttn } from "../../../ui/button";
 
 const LATEST_EVENTS: Event[] = [
   { id: 1, title: "Lorem 1", date: "2024-06-01", statusId: 1 },
@@ -43,9 +44,14 @@ const LatestEventsSection: FC = () => {
         <span className={"section_header_title"} style={{ margin: 12 }}>
           Latest 4 Events
         </span>
-        <button className={classes.bttn} onClick={onHandleSeeAll}>
-          {isSeeAll ? "Latest" : "See All"} <ArrowLeftIcon />
-        </button>
+        <span className={classes.bttn} onClick={onHandleSeeAll}>
+          {isSeeAll ? "Latest" : "See All"}{" "}
+          <IconOnlyBttn
+            style={isSeeAll ? { transform: "rotate(180deg)" } : {}}
+            icon={<ArrowLeftIcon />}
+          />
+          {/* <ArrowLeftIcon /> */}
+        </span>
       </div>
 
       <div className={classes.events_list}>{events}</div>

@@ -13,7 +13,8 @@
 
 .secondary {
   border: 1px solid var(--bttn-border-gray);
-  color: var(--green);
+  /* color: var(--green); */
+  color: #334155;
   font-family: var(--ff);
   background-color: white;
 }

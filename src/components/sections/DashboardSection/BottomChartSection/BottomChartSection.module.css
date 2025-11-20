@@ -1,6 +1,22 @@
 .section {
   display: flex;
   flex-direction: column;
-  /* gap: 16px; */
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
+  gap: 21px;
+  /* gap: 16px; */
+}
+
+.top_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.chart_wrapper {
+  width: 100%;
+  height: 200px;
+  /* border: 1px solid red; */
 }

@@ -223,3 +223,30 @@ export const EventStatusDictionaryEnum: EventStatusDictionary = {
   2: { label: "Unregistered", status: "warning" },
   3: { label: "Cancelled", status: "error" },
 };
+
+export const BOTTOM_SECTION_DUMMY_CHART_DATA = [
+  { name: "Dec 24", value: 30000 },
+  { name: "Dec 25", value: 35000 },
+  { name: "Dec 26", value: 28000 },
+  { name: "Dec 27", value: 31000 },
+  { name: "Dec 28", value: 42000 },
+  { name: "Dec 29", value: 23000 },
+  { name: "Dec 30", value: 35000 },
+  { name: "Dec 31", value: 30000 },
+  { name: "Jan 1", value: 45000 },
+  { name: "Jan 2", value: 35000 },
+  { name: "Jan 3", value: 30000 },
+  { name: "Jan 4", value: 41000 },
+  { name: "Jan 5", value: 35000 },
+];
+
+export const AGENCIES_CHART_DATA = [
+  { value: 0 },
+  { value: 10 },
+  { value: 88 },
+  { value: 20 },
+  { value: 90 },
+  { value: 30 },
+  { value: 89 },
+  { value: 95 },
+];

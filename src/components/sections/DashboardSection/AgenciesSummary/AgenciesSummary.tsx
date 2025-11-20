@@ -6,11 +6,13 @@ import {
   TickSquareIcon,
 } from "../../../../icons";
 import MainCard from "../../../ui/Cards/MainCard/MainCard";
+import AgenciesChart from "./AgenciesChart.tsx";
 import classes from "./AgenciesSummary.module.css";
 // import AgencieSummaryCard from "./AgencieSummaryCard";
 // import AgencieSummaryCard from "./AgencieSummaryCard.";
 import AgencieSummaryCard from "./AgencieSummaryCard.tsx";
 import type { ReactNode } from "react";
+// import { LineChart, Line, ResponsiveContainer } from "recharts";
 
 const getIcon = (id: number): ReactNode => {
   switch (id) {
@@ -55,7 +57,9 @@ const AgenciesSummary = () => {
             <span className={classes.percetage_change}>+2,5%</span>
           </span>
         </div>
-        <div className={classes.right}>test</div>
+        <div className={classes.right} /* style={{ height: 57, width: 138 }} */>
+          <AgenciesChart />
+        </div>
       </div>
     </MainCard>
   );

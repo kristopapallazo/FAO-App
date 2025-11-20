@@ -34,6 +34,8 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
+  height: 57px;
+  /* border: 1px solid black; */
 }
 .left {
   flex-shrink: 0;
@@ -51,7 +53,7 @@
 .percentage_wrapper {
   display: flex;
   /* flex-direction: column; */
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: nowrap;
   gap: 25px;
@@ -81,6 +83,27 @@
 
 /* chart contaciner */
 .right {
-  flex: 1;
-  border: 1px solid red;
+  /* flex: 1;*/
+  /* border: 1px solid red; */
+  margin-left: auto;
+  width: 138px;
+  height: 42px;
+  max-height: 42px;
+  min-width: 138px;
+  min-height: 42px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* Laptop/Desktop sizes */
+@media (min-width: 1024px) {
+  .right {
+    width: 300px;
+    height: 60px;
+    max-height: 60px;
+    min-width: 300px;
+    min-height: 60px;
+  }
 }

@@ -63,6 +63,7 @@ This project built as part of the FAO Front-End Developer Test. It consist it tw
 - **CSS Modules** - Modular approach styling, this improve the code readability, structure, and ensure that classes dont conflict with each others
 - **CSS Custom Properties** - Centralized theme management for colors, spacing, and design tokens
 - **Clsx** - Third-Party Lib, used for conditional CSS class management
+- **Recharts** - The library choose for the charts, it has a declarative api, easy integrated with react, has Ts support.
 
 ### Development Tools
 
