@@ -29,3 +29,6 @@
   background-color: var(--light-gray);
   padding: 24px;
 }
+.content.mobile {
+  padding: 18px 19px;
+}

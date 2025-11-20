@@ -1,4 +1,5 @@
-import { TEAM_MEMBERS, type TeamMember } from "../../../data";
+import { TEAM_MEMBERS } from "../../../data";
+import type { TeamMember } from "../../../types/dto.types";
 import { SettingIcon } from "../../../icons";
 import { PrimaryBttn } from "../../ui/button";
 import DynamicTable, {

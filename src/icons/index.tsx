@@ -26,6 +26,15 @@ import SortTableHeaderCellIcon from "./sort_table_header_cell.svg";
 import CheckIcon from "./check.svg";
 import ArrowLeftIcon from "./chevron-left.svg";
 import SettingIcon from "./settings.svg";
+import BurgerBttnIcon from "./menu-2.svg";
+import CalendarIcon from "./Frame 42.svg";
+import ExpandIcon from "./arrows-diagonal.svg";
+import ArrowNarrowDownIcon from "./arrow-narrow-down.svg";
+import DotsIcon from "./dots.svg";
+import AlertCircle from "./alert-circle.svg";
+import TickSquareIcon from "./Tick Square.svg";
+import TablerCirclesIcon from "./tabler_circles.svg";
+import TablerUserCheckIcon from "./tabler_user-check.svg";
 
 // #endregion Figma SVG Imports
 
@@ -55,6 +64,15 @@ export {
   CheckIcon,
   ArrowLeftIcon,
   SettingIcon,
+  BurgerBttnIcon,
+  CalendarIcon,
+  ExpandIcon,
+  ArrowNarrowDownIcon,
+  DotsIcon,
+  AlertCircle, //Alert Circle Icon, in the last section, near chart
+  TablerCirclesIcon, //first section
+  TablerUserCheckIcon, //second section
+  TickSquareIcon, //third section
 };
 
 export default Icons;

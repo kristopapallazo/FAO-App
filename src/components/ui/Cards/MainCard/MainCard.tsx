@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import classes from "./MainCard.module.css";
+import clsx from "clsx";
 
 interface MainCardProps {
   height?: string | number;
@@ -7,6 +8,7 @@ interface MainCardProps {
   style?: CSSProperties;
   color?: CSSProperties["backgroundColor"];
   children?: ReactNode;
+  className?: string;
 }
 
 /* Card take full height and width by default, configurable via props */
@@ -17,10 +19,11 @@ const MainCard: React.FC<MainCardProps> = ({
   color = "#ffffff",
   style,
   children,
+  className = "",
 }) => {
   return (
     <div
-      className={classes.card}
+      className={clsx(classes.card, className)}
       style={{ height, width, backgroundColor: color, ...style }}
     >
       {children}

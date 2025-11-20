@@ -16,10 +16,13 @@
   /* CSS Variables */
   --primary-color: #0f172a;
   --orange: #f3a919;
+  --light-orange: #f3a91e1a;
   --green: #2b7c7d;
+  --light-green: #2b7c7d1a;
   --red: #e33d19;
+  --light-red: #e33d191a;
   --dark-gray: #1e293b;
-  --light-gray: #d3d3d3; /* Todo: not sure about this, cant check in figma */
+  --light-gray: #f8fafc; /* for main layout content */
 
   /* Borders */
   /* --border-gray: #f8fafc; */

@@ -47,3 +47,18 @@
 .search_input::placeholder {
   color: var(--icon-gray);
 }
+
+/* Mobile */
+.is_mobile_wrapper {
+  width: 40px;
+  height: 40px;
+  max-height: 40px;
+  max-width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.is_mobile_wrapper svg {
+  width: 24px;
+  height: 24px;
+}

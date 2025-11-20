@@ -1,0 +1,28 @@
+.event_card {
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: 0.2px;
+  color: #262424;
+}
+.date {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 12px;
+  line-height: 160%;
+  letter-spacing: 0px;
+  color: var(--icon-gray);
+}

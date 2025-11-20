@@ -1,6 +1,7 @@
 import type { FC, InputHTMLAttributes } from "react";
 import classes from "./Input.module.css";
 import { SearchIcon } from "../../../../icons";
+import { useApp } from "../../../../hooks/useAppCtx";
 
 interface SearchInputProps {
   icon?: React.ReactNode;
@@ -19,6 +20,8 @@ const SearchInput: FC<SearchInputProps> = ({
   width = 263,
   style = {},
 }) => {
+  const { isMobile } = useApp() || {};
+
   const handleChange: InputHTMLAttributes<HTMLInputElement>["onChange"] = (
     e
   ) => {
@@ -29,16 +32,27 @@ const SearchInput: FC<SearchInputProps> = ({
   };
 
   return (
-    <div className={classes.search_input_wrapper} style={{ width, ...style }}>
-      {icon && <span className={classes.search_icon}>{icon}</span>}
-      <input
-        type="search"
-        value={value}
-        placeholder={placeholder}
-        className={classes.search_input}
-        onChange={handleChange}
-      />
-    </div>
+    <>
+      {isMobile ? (
+        <span className={classes.is_mobile_wrapper}>
+          <SearchIcon />
+        </span>
+      ) : (
+        <div
+          className={classes.search_input_wrapper}
+          style={{ width, ...style }}
+        >
+          {icon && <span className={classes.search_icon}>{icon}</span>}
+          <input
+            type="search"
+            value={value}
+            placeholder={placeholder}
+            className={classes.search_input}
+            onChange={handleChange}
+          />
+        </div>
+      )}
+    </>
   );
 };
 

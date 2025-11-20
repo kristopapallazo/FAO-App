@@ -1,30 +1,16 @@
-// #region Dto
-export interface User {
-  name: string;
-  role: string;
-}
-export interface TeamMember {
-  id: number;
-  name: string;
-  surname: string;
-  email: string;
-  phone: string;
-  status: Status["id"];
-  permission: Permission["id"];
-  createdAt: string;
-}
-export interface Status {
-  id: number;
-  label: "Active" | "Pending" | "Trashed";
-}
-export interface Permission {
-  id: number;
-  label: "Read" | "Write" | "Delete";
-  fullLabel: string;
-}
-// #endregion Dto
+import type {
+  EventStatusDictionary,
+  Permission,
+  Status,
+  TeamMember,
+  User,
+} from "../types/dto.types";
 
-export const user: User = { name: "John Doe", role: "Project Manager" };
+export const DUMMY_USER: User = {
+  id: "#john-doe",
+  name: "John Doe",
+  role: "Project Manager",
+};
 
 // #region Constants
 export const TEAM_MEMBERS: TeamMember[] = [
@@ -211,4 +197,10 @@ export const PERMISSION_DICTIONARY = {
   1: "Active",
   2: "Pending",
   3: "Trashed",
+};
+
+export const EventStatusDictionaryEnum: EventStatusDictionary = {
+  1: { label: "Registered", status: "success" },
+  2: { label: "Unregistered", status: "warning" },
+  3: { label: "Cancelled", status: "error" },
 };
