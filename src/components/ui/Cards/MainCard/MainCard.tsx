@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import classes from "./MainCard.module.css";
 import clsx from "clsx";
+import { useApp } from "../../../../hooks/useAppCtx";
 
 interface MainCardProps {
   height?: string | number;
@@ -21,9 +22,11 @@ const MainCard: React.FC<MainCardProps> = ({
   children,
   className = "",
 }) => {
+  const isdarkTheme = useApp()?.isdarkTheme;
+
   return (
     <div
-      className={clsx(classes.card, className)}
+      className={clsx(classes.card, className, isdarkTheme ? classes.dark : "")}
       style={{ height, width, backgroundColor: color, ...style }}
     >
       {children}

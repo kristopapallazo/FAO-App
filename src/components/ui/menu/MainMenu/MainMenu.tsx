@@ -2,7 +2,8 @@ import { type FC } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./MainMenu.module.css";
 import { IconBttn, MainMenuBttn } from "../../button";
-import Icons from "../../../../icons";
+import Icons, { ArrowDownIcon } from "../../../../icons";
+import { useApp } from "../../../../hooks/useAppCtx";
 
 const AppTitle: FC = () => {
   return (
@@ -46,6 +47,8 @@ const items: MenuItem[] = [
 ];
 
 const MainMenu: FC = () => {
+  const appCtx = useApp();
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -76,20 +79,51 @@ const MainMenu: FC = () => {
       (item.key === "dashboard" && location.pathname === "/") ||
       location.pathname === `/${item.key}`;
 
+    // const;
+
     return (
       <MainMenuBttn
         key={item.key}
-        active={isActive}
+        active={
+          isActive || (item.key === "dark-mode" && appCtx?.theme === "dark")
+        }
         icon={<item.Icon style={{ width: 22, height: 22 }} />}
-        onClick={() => handleNavigation(item.key)}
+        onClick={() => {
+          if (item.key === "dark-mode" && appCtx) {
+            if (!appCtx?.toggleTheme) return;
+            appCtx.toggleTheme();
+            return;
+          }
+          handleNavigation(item.key);
+        }}
+        rightIcon={
+          item.key === "dark-mode" &&
+          (appCtx?.theme === "dark" ? (
+            <span style={{ marginLeft: "16px" }}>
+              <ArrowDownIcon />
+            </span>
+          ) : (
+            <span style={{ transform: "rotate(180deg)" }}>
+              <ArrowDownIcon />
+            </span>
+          ))
+        }
       >
         {item.label}
       </MainMenuBttn>
     );
   };
 
+  // if (!appCtx) return <div>Error occured</div>;
+
+  // const toggleTheme = appCtx.toggleTheme;
+
   return (
-    <aside className={styles.main_menu}>
+    <aside
+      className={`${styles.main_menu} ${
+        appCtx?.theme === "dark" ? styles.dark : ""
+      }`}
+    >
       <AppTitle />
       <nav className={styles.menu_items}>{regularItems.map(renderButton)}</nav>
       <nav className={styles.menu_items_end}>{endItems.map(renderButton)}</nav>

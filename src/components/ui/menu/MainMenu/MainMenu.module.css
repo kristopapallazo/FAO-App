@@ -11,6 +11,11 @@
   max-height: 100%;
   overflow: auto;
 }
+.main_menu.dark {
+  background-color: var(--dark-gray) !important;
+  border-right: 2px solid var(--bttn-border-gray);
+  /* background-color: black !important; */
+}
 
 .app_title {
   display: flex;

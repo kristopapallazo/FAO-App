@@ -10,6 +10,7 @@ const MainLayout: FC = () => {
   const appCtx = useApp();
 
   const isMobile = appCtx.isMobile;
+  const isDarkTheme = appCtx?.isdarkTheme;
 
   return (
     <div className={classes.appWrapper}>
@@ -17,7 +18,11 @@ const MainLayout: FC = () => {
       <main className={classes.main}>
         <MainHeader />
         <section
-          className={clsx(classes.content, isMobile ? classes.mobile : "")}
+          className={clsx(
+            classes.content,
+            isMobile ? classes.mobile : "",
+            isDarkTheme ? classes.dark : ""
+          )}
         >
           <Outlet />
         </section>

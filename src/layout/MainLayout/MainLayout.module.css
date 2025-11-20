@@ -32,3 +32,7 @@
 .content.mobile {
   padding: 18px 19px;
 }
+.content.dark {
+  background-color: var(--primary-color);
+  /* background-color: var(--dark-gray); */
+}

@@ -107,6 +107,7 @@ This project built as part of the FAO Front-End Developer Test. It consist it tw
 5. **Action Icons**
 
    - View, Edit, and Delete icons with hover states
+   - Only for the menu (the sidebar) i have used react-icon library
 
 6. **Responsiveness**
    - Desktop: Full table layout with all columns visible

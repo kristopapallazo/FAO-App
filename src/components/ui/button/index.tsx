@@ -23,6 +23,7 @@ interface MainMenuBttnProps {
   style?: React.CSSProperties;
   active?: boolean;
   icon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
   label?: string;
   onClick?: () => void;
 }
@@ -65,6 +66,7 @@ interface PrimaryBttnProps {
   width?: number | string;
   status?: BttnStatus;
   withoutStyle?: boolean; // without style, to show only the icon
+  rightIcon?: React.ReactNode;
 }
 
 export const PrimaryBttn: FC<PrimaryBttnProps> = ({
@@ -79,6 +81,7 @@ export const PrimaryBttn: FC<PrimaryBttnProps> = ({
   width,
   status,
   withoutStyle,
+  rightIcon,
   // height = "33px",
 }) => {
   /* Determine if only contains an icon */
@@ -122,6 +125,7 @@ export const PrimaryBttn: FC<PrimaryBttnProps> = ({
           {/* <span className={classes.label_text}>{children || label}</span> */}
         </>
       )}
+      {rightIcon && <span className={classes.right_icon}>{rightIcon}</span>}
     </button>
   );
 };
